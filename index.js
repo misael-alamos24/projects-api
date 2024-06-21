@@ -20,6 +20,14 @@ app.use(express.json());
 // Routes
 app.use("/home", home);
 
+
+app.use("/", async (req, res, next) => {
+    return res.status(200).json({
+      title: "Hi I am the landing",
+      message: "The app is working properly!",
+    });
+  });
+
 // connection
 const port = process.env.PORT || 9001;
 app.listen(port, () => console.log(`Listening to port ${port}`));
