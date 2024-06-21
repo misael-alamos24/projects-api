@@ -53,7 +53,8 @@ Object.keys(global).map((g,i) => typeof global[g] === 'function' && global[g](se
 // Para relacionarlos hacemos un destructuring
 const { 
   // category, subcategory, notation, visit, /*notation_visit,*/ cat_subcat, user, team, image
-  boilerplate, //categories
+  //categories
+  
 } = sequelize.models; 
 // Aca vendrian las relaciones
 
