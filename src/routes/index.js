@@ -50,9 +50,9 @@ router.get("/", (req, res)=> {
     })
 })
 
-Object.keys(models).map((m,i)=> Object.keys(actions).map((a) => router[a](
-    `/${m}`, action(models[m], a, actions[a], m),
-)))
+// Object.keys(models).map((m,i)=> Object.keys(actions).map((a) => router[a](
+//     `/${m}`, action(models[m], a, actions[a], m),
+// )))
 
 // router.use("/boilerplate", boilerplateRoutes);
 
