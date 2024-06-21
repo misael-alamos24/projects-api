@@ -11,7 +11,7 @@ try {
   });
 } catch (error) {
   console.log({error})  
-}
+};
 
 // Import packages
 // const express = require("express");
