@@ -1,19 +1,19 @@
 const { Router } = require("express");
 // Importar todos los routers;
-const puppeteer = require('puppeteer');
+// const puppeteer = require('puppeteer');
 
-(async () => {
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
-    await page.goto('https://sudo-qubs-mu.vercel.app', {
-      waitUntil: 'domcontentloaded',
-    });
-    await page.screenshot({
-      path: 'hn.png',
-    });
+// (async () => {
+//     const browser = await puppeteer.launch();
+//     const page = await browser.newPage();
+//     await page.goto('https://sudo-qubs-mu.vercel.app', {
+//       waitUntil: 'domcontentloaded',
+//     });
+//     await page.screenshot({
+//       path: 'hn.png',
+//     });
     
-    await browser.close();
-})();
+//     await browser.close();
+// })();
 
 // const boilerplateRoutes = require ("./boilerplate.js");
 
