@@ -3,11 +3,15 @@ const { conn } = require('./src/db.js');
 const  PORT  = process.env.PORT || '3001' 
 
 // Syncing all the models at once.
-conn.sync({ force: false }).then(() => { //true olvida, false recuerda
-  server.listen(PORT, () => {
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
+try {
+  conn.sync({ force: false }).then(() => { //true olvida, false recuerda
+    server.listen(PORT, () => {
+      console.log('%s listening at 3001'); // eslint-disable-line no-console
+    });
   });
-});
+} catch (error) {
+  console.log({error})  
+}
 
 // Import packages
 // const express = require("express");
