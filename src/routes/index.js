@@ -46,7 +46,7 @@ let params = {
 router.get("/", (req, res)=> {
     res.status(200).json({
         message: 'Welcome to the API',
-        routes: Object.keys(models).map(a=> '/'+a)
+        routes: '/'
     })
 })
 
