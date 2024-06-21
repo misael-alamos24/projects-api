@@ -1,7 +1,7 @@
 require('dotenv').config();
 const { Sequelize , Op} = require('sequelize');
 // const Boilerplate = require('./models/boilerplate.js');
-// const Categories = require('./models/categories.js');
+const Categories = require('./models/categories.js');
 // const ModelCat_Subcat = require("./models/0-Cat_subcat.js");
 // const ModelCat = require ("./models/1-Category.js");// cambios importantes
 // const ModelSub = require("./models/2-Subcategory.js");// cambios importantes
@@ -11,12 +11,12 @@ const { Sequelize , Op} = require('sequelize');
 // const Admin = require("./models/6-Admin.js");// cambios importantes
 // const Team = require("./models/7-Team.js");
 // const Image = require("./models/8-Image.js");
-let arrayFiles = require('node:fs').readdirSync('./src/models/')
-let arrayConst = arrayFiles.map(a=>a.split('.')[0]); 
-console.log({arrayFiles, arrayConst})
-let global = {}
-arrayConst.map((ac,i) => global[ac] = require(`./models/${arrayFiles[i]}`))
-console.log({global})
+// let arrayFiles = require('node:fs').readdirSync('./src/models/')
+// let arrayConst = arrayFiles.map(a=>a.split('.')[0]); 
+// console.log({arrayFiles, arrayConst})
+// let global = {}
+// arrayConst.map((ac,i) => global[ac] = require(`./models/${arrayFiles[i]}`))
+// console.log({global})
 
 const fs = require('fs');
 const path = require('path');
@@ -45,8 +45,8 @@ const sequelize = new Sequelize(`postgres://${DB}:${DB_PASSWORD}@${DB_HOST}/${DB
 // Team(sequelize);
 // Image(sequelize);
 // Boilerplate(sequelize);
-Object.keys(global).map((g,i) => typeof global[g] === 'function' && global[g](sequelize))
-// Categories(sequelize);
+// Object.keys(global).map((g,i) => typeof global[g] === 'function' && global[g](sequelize))
+Categories(sequelize);
 
 
 // En sequelize.models están todos los modelos importados como propiedades
