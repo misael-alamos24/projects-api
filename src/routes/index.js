@@ -20,8 +20,9 @@ const { Router } = require("express");
 const router = Router();
 
 const { action } = require('../controllers/method.js');
+const { arrayConst } = require("../db.js");
 
-let models = require('../db.js').conn.models; console.log({models})
+let models = require('../db.js').conn.models; console.log({models}, Object.keys(models))
 let actions = {
     get: 'findAll', 
     post: 'create', 
@@ -43,10 +44,11 @@ let params = {
     delete  destroy     (where)
 */
 
-router.get("/", (req, res)=> {
+router.get("/", async (req, res)=> {
     res.status(200).json({
         message: 'Welcome to the API',
-        routes: '/'
+        routes: arrayConst.map((a,i)=> {return{[a]: '/' + Object.keys(models)[i]}}),
+        routesModels: Object.keys(models).map(a=> {return{[a]: '/' + a}}),
     })
 })
 
